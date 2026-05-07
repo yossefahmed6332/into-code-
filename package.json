@@ -1,0 +1,11 @@
+{
+  "name": "into-code-",
+  "version": "1.0.0",
+  "description": "CLI tool to generate runnable Java class code from class and attribute input",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test"
+  },
+  "license": "ISC"
+}
