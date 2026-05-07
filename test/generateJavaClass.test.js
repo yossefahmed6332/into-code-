@@ -2,7 +2,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const { generateJavaClass } = require('../src/generateJavaClass');
 
-test('generates java class with fields and main method', () => {
+test('generates Java class with fields and main method', () => {
   const code = generateJavaClass('Person', [
     { name: 'name', type: 'String' },
     { name: 'age', type: 'int' },
@@ -22,4 +22,12 @@ test('generates java class with fields and main method', () => {
 
 test('throws when class name is empty', () => {
   assert.throws(() => generateJavaClass('', []), /Class name is required/);
+});
+
+test('generates Java class with no attributes', () => {
+  const code = generateJavaClass('Empty', []);
+
+  assert.match(code, /public Empty\(\)/);
+  assert.match(code, /return "Empty\{\}";/);
+  assert.match(code, /Empty object = new Empty\(\);/);
 });

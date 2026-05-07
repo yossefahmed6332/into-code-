@@ -13,12 +13,15 @@ async function run() {
       await rl.question('How many attributes? '),
       10,
     );
+    if (Number.isNaN(attributeCount) || attributeCount < 0) {
+      throw new Error('Attribute count must be a non-negative integer.');
+    }
 
     const attributes = [];
 
-    for (let index = 0; index < (Number.isNaN(attributeCount) ? 0 : attributeCount); index += 1) {
-      const name = (await rl.question(`Attribute ${index + 1} name: `)).trim();
-      const type = (await rl.question(`Attribute ${index + 1} type: `)).trim();
+    for (let attributeIndex = 0; attributeIndex < attributeCount; attributeIndex += 1) {
+      const name = (await rl.question(`Attribute ${attributeIndex + 1} name: `)).trim();
+      const type = (await rl.question(`Attribute ${attributeIndex + 1} type: `)).trim();
       attributes.push({ name, type });
     }
 

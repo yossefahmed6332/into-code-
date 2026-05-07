@@ -1,5 +1,5 @@
 {
-  "name": "into-code-",
+  "name": "into-code",
   "version": "1.0.0",
   "description": "CLI tool to generate runnable Java class code from class and attribute input",
   "main": "src/index.js",
