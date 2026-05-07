@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Generator</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+
+<h1>you are in class generator</h1>
+<h2>Enter class details and create your first class code</h2>
+
+<form action="/class" method="GET">
+
+    <label>Class Name:</label>
+    <input type="text" name="className" required><br><br>
+
+    <label>Class Type:</label>
+    <select name="classType">
+        <option value="public class">Public Class</option>
+        <option value="class">Class</option>
+        <option value="abstract class">Abstract Class</option>
+        <option value="final class">Final Class</option>
+        <option value="interface">Interface</option>
+    </select><br><br>
+
+    <label>Is Extended:</label>
+    <input type="checkbox" name="isExtended" value="true"><br><br>
+
+    <label>Parent Class:</label>
+    <input type="text" name="ParentClass"><br><br>
+
+    <button type="submit">Generate Class</button>
+
+</form>
+
+</body>
+</html>
