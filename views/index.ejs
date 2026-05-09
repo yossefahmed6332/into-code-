@@ -4,36 +4,314 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Generator</title>
+
     <link rel="stylesheet" href="/css/index.css">
+
+    <style>
+
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        .attribute-box {
+            margin-bottom: 10px;
+        }
+
+        select,
+        input {
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        /* CODE STYLE */
+        pre {
+
+            background-color: #1e1e1e;
+
+            color: #ffffff;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            font-size: 16px;
+
+            overflow-x: auto;
+
+            white-space: pre-wrap;
+        }
+
+    </style>
+
 </head>
 <body>
 
-<h1>you are in class generator</h1>
-<h2>Enter class details and create your first class code</h2>
+<h1>You are in Class Generator</h1>
+
+<h2>
+    Enter class details and create your first class code
+</h2>
+
+
 
 <form action="/class" method="GET">
 
+
+
+    <!-- Class Name -->
     <label>Class Name:</label>
-    <input type="text" name="className" required><br><br>
 
+    <input type="text"
+           name="className"
+           required>
+
+    <br><br>
+
+
+
+    <!-- Class Type -->
     <label>Class Type:</label>
+
     <select name="classType">
-        <option value="public class">Public Class</option>
-        <option value="class">Class</option>
-        <option value="abstract class">Abstract Class</option>
-        <option value="final class">Final Class</option>
-        <option value="interface">Interface</option>
-    </select><br><br>
 
+        <option value="public class">
+            Public Class
+        </option>
+
+        <option value="class">
+            Class
+        </option>
+
+        <option value="abstract class">
+            Abstract Class
+        </option>
+
+        <option value="final class">
+            Final Class
+        </option>
+
+        <option value="interface">
+            Interface
+        </option>
+
+    </select>
+
+    <br><br>
+
+
+
+    <!-- Inheritance -->
     <label>Is Extended:</label>
-    <input type="checkbox" name="isExtended" value="true"><br><br>
 
+    <input type="checkbox"
+           name="isExtended"
+           value="true">
+
+    <br><br>
+
+
+
+    <!-- Parent -->
     <label>Parent Class:</label>
-    <input type="text" name="ParentClass"><br><br>
 
-    <button type="submit">Generate Class</button>
+    <input type="text"
+           name="ParentClass">
+
+    <br><br>
+
+
+
+    <!-- Attributes -->
+    <h2>Attributes</h2>
+
+
+
+    <div id="attributes-container">
+
+        <div class="attribute-box">
+
+
+
+            <!-- Access Modifier -->
+            <select name="condition">
+
+                <option value="private">
+                    private
+                </option>
+
+                <option value="public">
+                    public
+                </option>
+
+                <option value="protected">
+                    protected
+                </option>
+
+            </select>
+
+
+
+            <!-- Type -->
+            <select name="type">
+
+                <option value="int">int</option>
+
+                <option value="double">double</option>
+
+                <option value="float">float</option>
+
+                <option value="String">String</option>
+
+                <option value="boolean">boolean</option>
+
+                <option value="char">char</option>
+
+
+
+                <option value="ArrayList<String>">
+                    ArrayList&lt;String&gt;
+                </option>
+
+                <option value="ArrayList<Integer>">
+                    ArrayList&lt;Integer&gt;
+                </option>
+
+                <option value="ArrayList<Double>">
+                    ArrayList&lt;Double&gt;
+                </option>
+
+            </select>
+
+
+
+            <!-- Attribute Name -->
+            <input type="text"
+                   name="attributes"
+                   placeholder="attribute name">
+
+        </div>
+
+    </div>
+
+
+
+    <br>
+
+
+
+    <!-- Add Attribute -->
+    <button type="button"
+            onclick="addAttribute()">
+
+        Add Attribute
+
+    </button>
+
+
+
+    <br><br>
+
+
+
+    <!-- Submit -->
+    <button type="submit">
+
+        Generate Class
+
+    </button>
 
 </form>
+
+
+
+<script>
+
+function addAttribute() {
+
+    const container =
+        document.getElementById("attributes-container");
+
+
+
+    const div = document.createElement("div");
+
+
+
+    div.className = "attribute-box";
+
+
+
+    div.innerHTML = `
+
+        <select name="condition">
+
+            <option value="private">
+                private
+            </option>
+
+            <option value="public">
+                public
+            </option>
+
+            <option value="protected">
+                protected
+            </option>
+
+        </select>
+
+
+
+        <select name="type">
+
+            <option value="int">int</option>
+
+            <option value="double">double</option>
+
+            <option value="float">float</option>
+
+            <option value="String">String</option>
+
+            <option value="boolean">boolean</option>
+
+            <option value="char">char</option>
+
+
+
+            <option value="ArrayList<String>">
+                ArrayList&lt;String&gt;
+            </option>
+
+            <option value="ArrayList<Integer>">
+                ArrayList&lt;Integer&gt;
+            </option>
+
+            <option value="ArrayList<Double>">
+                ArrayList&lt;Double&gt;
+            </option>
+
+        </select>
+
+
+
+        <input type="text"
+               name="attributes"
+               placeholder="attribute name">
+
+        <br><br>
+    `;
+
+
+
+    container.appendChild(div);
+}
+
+</script>
 
 </body>
 </html>
